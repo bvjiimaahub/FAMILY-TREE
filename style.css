@@ -1,0 +1,683 @@
+
+/* Үндсэн тохиргоо */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #F5EBDD;
+    color: #65432E;
+    line-height: 1.6;
+}
+
+/* Дээд цэс */
+header {
+    background-color: #65432E;
+    padding: 20px 8%;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav > a {
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFF5E8;
+    text-decoration: none;
+}
+
+nav div {
+    display: flex;
+    gap: 30px;
+}
+
+nav div a {
+    color: #FFF5E8;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+nav div a:hover {
+    color: #E5CCAA;
+}
+
+/* Нүүр хуудас */
+#home {
+    min-height: 75vh;
+    background: linear-gradient(
+        135deg,
+        #F5EBDD,
+        #EAD8BE
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#home h1 {
+    font-size: 64px;
+    margin-bottom: 15px;
+    color: #65432E;
+}
+
+#home p {
+    font-size: 20px;
+    color: #8D6548;
+    margin-bottom: 30px;
+}
+
+#home a {
+    display: inline-block;
+    background-color: #65432E;
+    color: white;
+    padding: 13px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#home a:hover {
+    background-color: #8D6548;
+    transform: translateY(-3px);
+}
+
+/* Удмын мод */
+#family-tree {
+    padding: 80px 8%;
+    text-align: center;
+    background-color: #FFF9F0;
+    min-height: 350px;
+}
+
+#family-tree h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+#family-tree p {
+    color: #8D6548;
+}
+
+/* Гэр бүлийн гишүүд */
+#members {
+    padding: 80px 8%;
+    text-align: center;
+    min-height: 350px;
+}
+
+#members h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+#members p {
+    color: #8D6548;
+}
+
+/* Доод хэсэг */
+footer {
+    background-color: #65432E;
+    color: #FFF5E8;
+    text-align: center;
+    padding: 22px;
+    font-size: 14px;
+}
+
+/* Таблет */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav div {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    #home h1 {
+        font-size: 44px;
+    }
+
+    #home p {
+        font-size: 17px;
+    }
+
+    #family-tree h2,
+    #members h2 {
+        font-size: 28px;
+    }
+}
+
+/* Утас */
+@media (max-width: 480px) {
+    header {
+        padding: 18px 12px;
+    }
+
+    nav div {
+        gap: 12px;
+    }
+
+    nav div a {
+        font-size: 13px;
+    }
+
+    #home h1 {
+        font-size: 36px;
+    }
+
+    #home p {
+        font-size: 15px;
+    }
+
+    #family-tree,
+    #members {
+        padding: 60px 20px;
+    }
+}
+
+/* Удмын модны үндсэн хэсэг */
+#family-tree {
+    background: linear-gradient(
+        to bottom,
+        #FFF9F0,
+        #EAD8BE
+    );
+    padding: 70px 20px;
+    text-align: center;
+}
+
+#family-tree h2 {
+    font-size: 38px;
+    color: #65432E;
+    margin-bottom: 15px;
+}
+
+/* Үе бүрийн байрлал */
+.generation {
+    position: relative;
+    margin: 35px auto;
+    padding: 25px 15px;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+}
+
+.generation h3 {
+    color: #79573C;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+/* Хүн бүрийн карт */
+.person {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 175px;
+    min-height: 110px;
+    margin: 10px;
+
+    background: #FFF9F0;
+    border: 2px solid #B99A76;
+    border-radius: 15px;
+
+    padding: 15px;
+    box-shadow: 0 5px 12px rgba(70, 45, 25, 0.12);
+    transition: 0.3s;
+}
+
+.person h4 {
+    font-size: 17px;
+    color: #65432E;
+    margin-bottom: 7px;
+}
+
+.person p {
+    font-size: 13px;
+    color: #8D6548;
+}
+
+/* Хулгана очих үед */
+.person:hover {
+    transform: translateY(-6px);
+    background-color: #F0E1CC;
+    border-color: #65432E;
+}
+
+/* Үе хоорондын холболт */
+.generation:not(:last-child)::after {
+    content: "│";
+    position: absolute;
+    left: 50%;
+    bottom: -38px;
+    color: #79573C;
+    font-size: 35px;
+}
+
+/* Утасны дэлгэц */
+@media (max-width: 768px) {
+    .generation {
+        padding: 20px 10px;
+    }
+
+    .person {
+        width: 140px;
+        min-height: 100px;
+        margin: 6px;
+    }
+
+    .person h4 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .person {
+        width: 125px;
+        padding: 10px;
+    }
+
+    .generation h3 {
+        font-size: 18px;
+    }
+}
+/* Модны зурагтай дэвсгэр */
+#family-tree {
+    background-image: url("images/tree.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 950px;
+}
+
+/* Картуудыг модны зураг дээр тод харагдуулах */
+.generation {
+    background: rgba(255, 249, 240, 0.75);
+}
+
+.person {
+    background: rgba(255, 249, 240, 0.95);
+}
+#family-tree {
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 1100px;
+}
+
+/* Ногоон өнгийн үндсэн загвар */
+body {
+    background-color: #EAF4D7;
+    color: #174D25;
+}
+
+/* Дээд цэс */
+header {
+    background-color: #07551C;
+}
+
+nav > a,
+nav div a {
+    color: #FFFFFF;
+}
+
+nav div a:hover {
+    color: #D8ECA4;
+}
+
+/* Нүүр хуудас */
+#home {
+    background: linear-gradient(
+        135deg,
+        #F0F9DC,
+        #B9DC91
+    );
+}
+
+#home h1 {
+    color: #07551C;
+}
+
+#home p {
+    color: #3D7140;
+}
+
+#home a {
+    background-color: #07551C;
+    color: white;
+}
+
+#home a:hover {
+    background-color: #23833B;
+}
+
+/* Удмын мод */
+#family-tree {
+    background-color: #D9EDBD;
+    background-image: url("images/tree.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#family-tree h2 {
+    color: #07551C;
+}
+
+/* Үе бүрийн хэсэг */
+.generation {
+    background: rgba(234, 244, 215, 0.35);
+}
+
+.generation h3 {
+    color: white;
+    background-color: #07551C;
+    border-radius: 30px;
+    padding: 8px 20px;
+    display: inline-block;
+}
+
+/* Хүний карт */
+.person {
+    background-color: #FFF8E5;
+    border: 2px solid #07551C;
+}
+
+.person h4 {
+    color: #174D25;
+}
+
+.person p {
+    color: #3D7140;
+}
+
+.person:hover {
+    background-color: #E1F0C5;
+    border-color: #23833B;
+}
+
+/* Гэр бүлийн гишүүд */
+#members {
+    background-color: #EAF4D7;
+}
+
+#members h2 {
+    color: #07551C;
+}
+
+/* Доод хэсэг */
+footer {
+    background-color: #07551C;
+    color: white;
+}
+/* Модны хэсгийн байрлал */
+#family-tree {
+    position: relative;
+    min-height: 1100px;
+    padding: 50px 20px;
+}
+
+/* Үе бүрийн тунгалаг дэвсгэрийг арилгах */
+.generation {
+    background: transparent;
+    box-shadow: none;
+    margin: 30px auto;
+}
+
+/* Хүний карт */
+.person {
+    background: #FFF8E5;
+    border: 2px solid #07551C;
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Үе хоорондын хуучин босоо зураасыг арилгах */
+.generation::after {
+    display: none;
+}
+/* 1-р үе — Өвөө, эмээ */
+.generation:nth-of-type(1) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    padding-top: 30px;
+}
+
+/* Үеийн гарчгийг бүтэн мөрөнд байрлуулах */
+.generation:nth-of-type(1) h3 {
+    width: 100%;
+}
+
+/* Өвөө, эмээ нарын карт */
+.generation:nth-of-type(1) .person {
+    width: 180px;
+    min-height: 100px;
+    background: #FFF8E5;
+    border: 2px solid #07551C;
+    border-radius: 15px;
+}
+
+/* Утасны дэлгэц */
+@media (max-width: 600px) {
+    .generation:nth-of-type(1) .person {
+        width: 135px;
+        margin: 5px;
+    }
+}
+
+/* Бүх үеийн байрлалыг засах */
+#family-tree .generation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 20px 10px;
+}
+
+/* Үеийн гарчиг дээд талд байрлана */
+#family-tree .generation h3 {
+    width: fit-content;
+    flex-basis: auto;
+    margin: 0 auto 15px;
+    text-align: center;
+}
+
+/* Гарчгийн дараа картууд шинэ мөрөөс эхэлнэ */
+#family-tree .generation h3::after {
+    content: none;
+}
+
+#family-tree .generation h3 {
+    margin-left: calc(50% - 150px);
+    margin-right: calc(50% - 150px);
+    min-width: 300px;
+}
+
+/* 3-р үеийн 5 хүнийг нэг мөрөнд багтаах */
+#family-tree .generation:nth-of-type(3) .person {
+    width: 170px;
+    min-height: 110px;
+    margin: 5px;
+}
+
+/* Утасны дэлгэц */
+@media (max-width: 768px) {
+    #family-tree .generation h3 {
+        margin-left: auto;
+        margin-right: auto;
+        flex-basis: 100%;
+        min-width: 0;
+    }
+
+    #family-tree .generation .person {
+        width: 135px;
+    }
+}
+
+/* Modal-ийн арын дэвсгэр */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 35, 10, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Мэдээллийн цонх */
+.modal-content {
+    position: relative;
+    background: #FFF8E5;
+    border: 2px solid #07551C;
+    border-radius: 18px;
+    padding: 35px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.modal-content h2 {
+    color: #07551C;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #3D7140;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.modal-content hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #B9DC91;
+}
+
+/* Хаах товч */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    color: #07551C;
+    cursor: pointer;
+}
+
+/* Карт дээр дарах боломжтойг харуулах */
+.person {
+    cursor: pointer;
+}
+
+.member-groups {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.member-group {
+    background-color: #FFF8E5;
+    border: 2px solid #B9DC91;
+    border-radius: 18px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0, 60, 20, 0.1);
+}
+
+.member-group h3 {
+    color: #07551C;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.member-group p {
+    color: #3D7140;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .member-groups {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Удмын модны холбоос */
+
+#family-tree .generation {
+    position: relative;
+    overflow: visible;
+}
+
+/* Өвөө эмээгийн хэсгээс доош */
+#family-tree .grandparents::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: #07551C;
+    left: 50%;
+    bottom: -30px;
+}
+
+/* Аав ээжийн хэсгээс доош */
+#family-tree .parents::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: #07551C;
+    left: 50%;
+    bottom: -30px;
+}
+
+/* Холболтын харагдах байдал */
+#family-tree .person {
+    position: relative;
+    z-index: 2;
+}
+
+/* Гар утас */
+@media (max-width: 768px) {
+    #family-tree .grandparents::after,
+    #family-tree .parents::after {
+        height: 20px;
+        bottom: -20px;
+    }
+}
