@@ -681,3 +681,67 @@ footer {
         bottom: -20px;
     }
 }
+
+/* Утасны дэлгэцийн тохиргоо */
+@media (max-width: 768px) {
+
+    #family-tree {
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-position: center top;
+        min-height: auto;
+        padding: 30px 10px;
+    }
+
+    #family-tree > h2 {
+        font-size: 28px;
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    #family-tree > p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #family-tree .generation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+        padding: 12px 0;
+        margin: 25px auto;
+    }
+
+    #family-tree .generation h3 {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin: 0;
+        font-size: 16px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    #family-tree .person {
+        width: auto;
+        min-width: 0;
+        margin: 0;
+        padding: 12px 6px;
+        box-sizing: border-box;
+    }
+
+    #family-tree .person h4 {
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+
+    #family-tree .person p {
+        font-size: 12px;
+    }
+
+    #family-tree .grandparents::after,
+    #family-tree .parents::after {
+        display: none;
+    }
+}
+
